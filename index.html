@@ -10,10 +10,21 @@
     </head>
 <body>
     <h1>Vue.jsの練習</h1>
-    <!-- <h5>Vue.jsはDOM操作を自動でやってくれる</h5> -->
+    <h5>Vue.jsはDOM操作を自動でやってくれる</h5>
     <div id="ex1">
         {{ luffy }} <!--マスタッシュ構文 -->
     </div>
+
+    <h1>v-bind</h1>
+    <h5>~属性値にVueインスタンスデータを結び付ける~</h5>
+    <div id="ex2">
+        <a v-bind:href="url">チョッパー</a>
+    <br>
+    <input type="text" v-bind:placeholder="devil">
+    </div>
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="index.js"></script>    
 </body>
