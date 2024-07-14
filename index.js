@@ -15,6 +15,3 @@ const app2 = new Vue({
        devil:"悪魔の実",
    },
 });
-
-
-
