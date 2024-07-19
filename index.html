@@ -13,7 +13,9 @@
     <h5>Vue.jsはDOM操作を自動でやってくれる</h5>
     <div id="ex1">
         {{ luffy }} <!--マスタッシュ構文 -->
+        {{ `俺は${luffy}になる男だ`}}
     </div>
+
 
     <h1>v-bind</h1>
     <h5>~属性値にVueインスタンスデータを結び付ける~</h5>
@@ -22,6 +24,27 @@
     <br>
     <input type="text" v-bind:placeholder="devil">
     </div>
+
+    <h1>v-for</h1>
+    <h5>~繰り返し処理(配列)~</h5>
+    <ul id="ex3">
+        <li
+            v-for="character in four_emperrors"
+            v-bind:key = "character" 
+        ><!--   key属性は Vueが識別するために  -->
+        {{ character }}
+        </li>
+    </ul>
+    <h5>~繰り返し処理(オブジェクト)~</h5>
+    <ul id="ex4">
+        <li
+            v-for="(devil_fruit, character) in devil_fruits"
+            v-bind:key="character"
+        >
+            {{ character }}:{{ devil_fruit }}
+        </li>
+    </ul>
+
 
 
 
