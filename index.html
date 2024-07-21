@@ -1,75 +1,75 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="utf-8">
-        <title>Vue.js</title>
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <link rel="stylesheet" media="screen" href="style.css">
-    </head>
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" media="screen" href="style.css">
+    <style>
+        .center-content {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .content-wrapper {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
 <body>
-    <h1>Vue.jsの練習</h1>
-    <h5>Vue.jsはDOM操作を自動でやってくれる</h5>
-    <div id="ex1">
-        {{ luffy }} <!--マスタッシュ構文 -->
-        {{ `俺は${luffy}になる男だ`}}
+    <div class="container center-content">
+        <div class="content-wrapper">
+            <h1>Vue.jsの練習</h1>
+            <h5>Vue.jsはDOM操作を自動でやってくれる</h5>
+            <div id="ex1">
+                {{ luffy }} <!--マスタッシュ構文 -->
+                {{ `俺は${luffy}になる男だ`}}
+            </div>
+
+            <h1>v-bind</h1>
+            <h5>~属性値にVueインスタンスデータを結び付ける~</h5>
+            <div id="ex2">
+                <a v-bind:href="url">チョッパー</a>
+                <br>
+                <input type="text" v-bind:placeholder="devil">
+            </div>
+
+            <h1>v-for</h1>
+            <h5>~繰り返し処理(配列)~</h5>
+            <ul id="ex3">
+                <li v-for="character in four_emperrors" v-bind:key="character">
+                    {{ character }}
+                </li>
+            </ul>
+            <h5>~繰り返し処理(オブジェクト)~</h5>
+            <ul id="ex4">
+                <li v-for="(devil_fruit, character) in devil_fruits" v-bind:key="character">
+                    {{ character }}:{{ devil_fruit }}
+                </li>
+            </ul>
+
+            <h1>v-on</h1>
+            <h5>~イベントを処理する~</h5>
+            <div id="ex5">
+                <input type="text" v-bind:placeholder="devil" v-bind:value="name" v-on:input="name = $event.target.value">
+                {{ name }}
+            </div>
+            <br>
+            <h5>省略した書き方</h5>
+            <div id="ex6">
+                <input type="text" :placeholder="devil" :value="name" @input="name = $event.target.value">
+                {{ name }}
+            </div>
+        </div>
     </div>
-
-
-    <h1>v-bind</h1>
-    <h5>~属性値にVueインスタンスデータを結び付ける~</h5>
-    <div id="ex2">
-        <a v-bind:href="url">チョッパー</a>
-    <br>
-    <input type="text" v-bind:placeholder="devil">
-    </div>
-
-    <h1>v-for</h1>
-    <h5>~繰り返し処理(配列)~</h5>
-    <ul id="ex3">
-        <li
-            v-for="character in four_emperrors"
-            v-bind:key = "character" 
-        ><!--   key属性は Vueが識別するために  -->
-        {{ character }}
-        </li>
-    </ul>
-    <h5>~繰り返し処理(オブジェクト)~</h5>
-    <ul id="ex4">
-        <li
-            v-for="(devil_fruit, character) in devil_fruits"
-            v-bind:key="character"
-        >
-            {{ character }}:{{ devil_fruit }}
-        </li>
-    </ul>
-    <h1>v-on</h1>
-    <h5>~イベントを処理する~</h5>
-    <div id="ex5">
-        <input type="text"
-            v-bind:placeholder="devil" v-bind:value="name"
-            v-on:input="name = $event.target.value"
-        >
-    <!-- inputのイベントを発生を待つ $eventイベントオブジェクト-->
-        {{ name }}
-    </div>
-    <br>
-    <h5>省略した書き方</h5>
-    <div id="ex6">
-        <input type="text"
-            :placeholder="devil" :value="name"
-            @input="name = $event.target.value"
-        >
-        {{ name }}
-    </div>
-
-
-
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-    <script src="index.js"></script>    
+    <script src="index.js"></script>
 </body>
 </html>
