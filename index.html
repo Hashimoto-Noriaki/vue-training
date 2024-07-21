@@ -44,6 +44,27 @@
             {{ character }}:{{ devil_fruit }}
         </li>
     </ul>
+    <h1>v-on</h1>
+    <h5>~イベントを処理する~</h5>
+    <div id="ex5">
+        <input type="text"
+            v-bind:placeholder="devil" v-bind:value="name"
+            v-on:input="name = $event.target.value"
+        >
+    <!-- inputのイベントを発生を待つ $eventイベントオブジェクト-->
+        {{ name }}
+    </div>
+    <br>
+    <h5>省略した書き方</h5>
+    <div id="ex6">
+        <input type="text"
+            :placeholder="devil" :value="name"
+            @input="name = $event.target.value"
+        >
+        {{ name }}
+    </div>
+
+
 
 
 
